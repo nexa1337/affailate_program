@@ -910,6 +910,260 @@ body.dark-mode .carousel-indicator {
   }
 }
 
+/* Welcome Popup Modal */
+.popup-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-modal.show {
+  display: flex;
+}
+
+.popup-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: -1;
+}
+
+.popup-content {
+  background: white;
+  border-radius: 24px;
+  padding: 50px 40px;
+  max-width: 520px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: slideUp 0.5s ease;
+}
+
+body.dark-mode .popup-content {
+  background: #1a1a1a;
+}
+
+.popup-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--primary);
+  background: white;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--primary);
+  transition: all 0.3s;
+  font-weight: 300;
+  padding: 0;
+}
+
+body.dark-mode .popup-close {
+  background: #1a1a1a;
+}
+
+.popup-close:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.popup-icon-cluster {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 35px;
+  font-size: 48px;
+}
+
+.popup-icon {
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+.popup-icon:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.popup-icon:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.popup-icon:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.popup-content h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+}
+
+.popup-subtitle {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+body.dark-mode .popup-subtitle {
+  color: #aaa;
+}
+
+.popup-tagline {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 35px;
+  line-height: 1.5;
+}
+
+body.dark-mode .popup-tagline {
+  color: white;
+}
+
+.popup-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 35px;
+}
+
+.popup-link {
+  padding: 14px 20px;
+  background: transparent;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  border: 1px solid transparent;
+}
+
+.popup-link:hover {
+  background: linear-gradient(135deg, var(--primary) 0%, #8b9eff 100%);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(106, 121, 250, 0.3);
+}
+
+.popup-trust {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+body.dark-mode .popup-trust {
+  color: #aaa;
+}
+
+.popup-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+}
+
+body.dark-mode .popup-checkbox {
+  color: #aaa;
+}
+
+.popup-checkbox input {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+}
+
+@media (max-width: 480px) {
+  .popup-content {
+    padding: 35px 25px;
+    border-radius: 20px;
+  }
+
+  .popup-close {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    top: 15px;
+    right: 15px;
+  }
+
+  .popup-icon-cluster {
+    gap: 20px;
+    font-size: 40px;
+    margin-bottom: 25px;
+  }
+
+  .popup-content h2 {
+    font-size: 26px;
+    margin-bottom: 14px;
+  }
+
+  .popup-subtitle {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .popup-tagline {
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+
+  .popup-links {
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+
+  .popup-link {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .popup-trust {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+
+  .popup-checkbox {
+    font-size: 13px;
+  }
+}
+
 /* Modal */
 .modal {
   display: none;

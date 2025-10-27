@@ -78,7 +78,7 @@ setInterval(updateDateTime, 1000)
 
 // Update Visitor Count
 function updateVisitors() {
-  const count = Math.floor(Math.random() * (500 - 200 + 1)) + 200
+  const count = Math.floor(Math.random() * (30000 - 500 + 1)) + 500
   document.getElementById("visitor-count").textContent = count
 }
 
@@ -459,6 +459,51 @@ function createSnowflake() {
 }
 
 setInterval(createSnowflake, 300)
+
+function initWelcomePopup() {
+  const popupModal = document.getElementById("popup-modal")
+  const dontShowCheckbox = document.getElementById("popup-dont-show")
+
+  // Check if user has disabled popup
+  if (localStorage.getItem("hideWelcomePopup") === "true") {
+    return
+  }
+
+  // Show popup after 1.5 seconds
+  setTimeout(() => {
+    popupModal.classList.add("show")
+  }, 1500)
+
+  // Handle checkbox
+  dontShowCheckbox.addEventListener("change", () => {
+    if (dontShowCheckbox.checked) {
+      localStorage.setItem("hideWelcomePopup", "true")
+    }
+  })
+}
+
+function closeWelcomePopup() {
+  const popupModal = document.getElementById("popup-modal")
+  popupModal.classList.remove("show")
+
+  // Save preference if checkbox is checked
+  const dontShowCheckbox = document.getElementById("popup-dont-show")
+  if (dontShowCheckbox.checked) {
+    localStorage.setItem("hideWelcomePopup", "true")
+  }
+}
+
+// Close popup when clicking outside
+document.addEventListener("DOMContentLoaded", () => {
+  const popupModal = document.getElementById("popup-modal")
+  popupModal.addEventListener("click", (e) => {
+    if (e.target === popupModal) {
+      closeWelcomePopup()
+    }
+  })
+
+  initWelcomePopup()
+})
 
 // Initialize
 initCategoryFilter()

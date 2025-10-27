@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <title>N E X A 1337 Partners - Discover The Best AI Tools, Hosting, VPN & Digital Services</title>
+    <title>NEXA Affiliate - Discover The Best AI Tools, Hosting, VPN & Digital Services</title>
     <meta name="description" content="Discover the best AI tools, hosting, VPN and digital services. Expert-tested, community-ranked, updated daily.">
     <meta name="keywords" content="AI tools, hosting, VPN, digital services, affiliate">
     <meta name="author" content="NEXA Affiliate">
@@ -31,7 +30,7 @@
 
     <!-- Navbar -->
     <nav>
-        <div class="nav-logo"><span class="nexa-text">N E X A</span> <span class="nexa-number">1337</span></div>
+        <div class="nav-logo"><span class="nexa-text">NEXA</span> <span class="nexa-number">1337</span></div>
         <div class="nav-links" id="navLinks">
             <a href="#home">Home</a>
             <a href="#offers">Offers</a>
@@ -47,6 +46,39 @@
             </div>
         </div>
     </nav>
+
+    <!-- Welcome Popup Modal -->
+    <div id="popup-modal" class="popup-modal">
+        <div class="popup-overlay"></div>
+        <div class="popup-content">
+            <button class="popup-close" aria-label="Close popup" onclick="closeWelcomePopup()">×</button>
+            
+            <div class="popup-icon-cluster">
+                <span class="popup-icon">📚</span>
+                <span class="popup-icon">🎨</span>
+                <span class="popup-icon">🤖</span>
+            </div>
+            
+            <h2>Explore Our Platforms</h2>
+            <p class="popup-subtitle">Discover our digital solutions and resources across multiple platforms.</p>
+            <p class="popup-tagline">Get more traffic and grow your business today.</p>
+            
+            <div class="popup-links">
+                <a href="#blog" class="popup-link popup-cta" onclick="closeWelcomePopup()">Visit Our Blog</a>
+                <a href="#" class="popup-link popup-cta" onclick="closeWelcomePopup()">Buy Our Books</a>
+                <a href="#" class="popup-link popup-cta" onclick="closeWelcomePopup()">Our MindMap</a>
+                <a href="#" class="popup-link popup-cta" onclick="closeWelcomePopup()">Our Services</a>
+                <a href="#" class="popup-link popup-cta" onclick="closeWelcomePopup()">Get Digital Website</a>
+            </div>
+            
+            <p class="popup-trust">Join 500+ businesses already growing with <strong>N E X A 1337</strong></p>
+            
+            <label class="popup-checkbox">
+                <input type="checkbox" id="popup-dont-show" aria-label="Don't show this popup again">
+                <span>Don't show this again</span>
+            </label>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
