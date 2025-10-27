@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <title>N E X A 1337 Partners - Discover The Best AI Tools, Hosting, VPN & Digital Services</title>
+    <meta name="description" content="Discover the best AI tools, hosting, VPN and digital services. Expert-tested, community-ranked, updated daily.">
+    <meta name="keywords" content="AI tools, hosting, VPN, digital services, affiliate">
+    <meta name="author" content="NEXA Affiliate">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Datetime Header -->
+    <div class="datetime-header">
+        <div class="datetime-content">
+            <div class="datetime-item">
+                <span id="current-date"></span>
+            </div>
+            <div class="datetime-item">
+                <span id="current-time"></span>
+            </div>
+            <div class="datetime-item">
+                <span class="visitor-dot"></span>
+                <span id="visitor-count">324</span> Visitors Online Now
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-logo"><span class="nexa-text">N E X A</span> <span class="nexa-number">1337</span></div>
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#offers">Offers</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-right">
+            <button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Discover The Best</h1>
+        <div class="highlight">AI Tools, Hosting, VPN & Digital Services</div>
+        <p>Expert-tested. Community-ranked. Updated daily.</p>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Find the best hosting, AI tool, or secure email...">
+            <button onclick="searchOffers()">Search</button>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <div class="category-filter" id="categoryFilter"></div>
+
+    <!-- Featured Offers Section -->
+    <section class="featured-offers" id="offers">
+        <h2>Featured Offers</h2>
+        <div class="offers-grid" id="offersGrid"></div>
+        <div class="pagination" id="pagination"></div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Growth Tips & Trends</h2>
+            <p class="blog-subtitle">Learn how to scale your business with proven digital strategies.</p>
+            <div class="blog-carousel-wrapper">
+                <button class="carousel-nav carousel-prev" id="carouselPrev" aria-label="Previous posts">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="blog-grid" id="blogGrid">
+                    <div style="grid-column: 1/-1; text-align: center; padding: 2rem;">
+                        <p style="color: var(--gray);">New posts coming soon, explore our <a href="https://nexa1337blogging.blogspot.com" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">Blog Hub</a></p>
+                    </div>
+                </div>
+                <button class="carousel-nav carousel-next" id="carouselNext" aria-label="Next posts">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="carousel-indicators" id="carouselIndicators"></div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">↑</button>
+
+    <!-- Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-left">
+                <a class="modal-back" onclick="closeModal()">← Back to all tools</a>
+                <div class="modal-header">
+                    <div class="modal-icon" id="modalIcon"></div>
+                    <div class="modal-title-section">
+                        <h1 id="modalTitle"></h1>
+                        <p id="modalDescription"></p>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h2 id="aboutTitle">About</h2>
+                    <p id="aboutContent"></p>
+                </div>
+
+                <div class="modal-section">
+                    <h2>Why You Need It</h2>
+                    <ul id="whyList"></ul>
+                </div>
+
+                <div class="modal-section">
+                    <h2>Who Should Get It?</h2>
+                    <p id="whoContent"></p>
+                    <ul id="whoList"></ul>
+                </div>
+
+                <div class="modal-section">
+                    <h2>Why It's the Best Choice</h2>
+                    <p id="whyBestContent"></p>
+                </div>
+
+                <div class="modal-special-offer">
+                    <h3>✓ Special Offer – Take Action Now</h3>
+                    <p id="specialOfferText"></p>
+                    <ul id="specialOfferList"></ul>
+                </div>
+            </div>
+
+            <div class="modal-right">
+                <button class="visit-button" onclick="visitWebsite()">Visit Website →</button>
+                <p class="redirect-text">You will be redirected to our partner's site.</p>
+
+                <div class="modal-sidebar-section">
+                    <h3>Quick Look</h3>
+                    <div class="quick-look-item">
+                        <span class="quick-look-label">Rating</span>
+                        <span class="quick-look-value" id="modalRating">4.5 ⭐</span>
+                    </div>
+                    <div class="quick-look-item">
+                        <span class="quick-look-label">Category</span>
+                        <span class="quick-look-value" id="modalCategory">VPN Services</span>
+                    </div>
+                </div>
+
+                <div class="modal-sidebar-section">
+                    <h3>Tags</h3>
+                    <div class="tags" id="modalTags"></div>
+                </div>
+
+                <div class="modal-sidebar-section">
+                    <div class="advertise-box">
+                        <p>Advertise with us</p>
+                    </div>
+                </div>
+
+                <div class="modal-sidebar-section">
+                    <h3>SEO Guide</h3>
+                    <div class="seo-guide">
+                        <img src="/placeholder.svg?height=200&width=300" alt="SEO Guide">
+                        <p>Get the complete guide for optimizing content for search engines.</p>
+                        <a href="#" class="download-btn">DOWNLOAD</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>NEXA 1337</h3>
+                <p>Empowering digital growth through creativity, technology, and smart strategy.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="#home">About</a></li>
+                    <li><a href="#offers">Services</a></li>
+                    <li><a href="#blog">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#home">Our Story</a></li>
+                    <li><a href="#offers">Team</a></li>
+                    <li><a href="#blog">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#offers">Support</a></li>
+                    <li><a href="#home">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Download App</h3>
+                <div class="app-buttons">
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-google-play"></i>
+                        Google Play
+                    </a>
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-apple"></i>
+                        App Store
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">© 2025 NEXA1337 – All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
